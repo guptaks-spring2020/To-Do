@@ -18,30 +18,49 @@ btn.addEventListener("click", addToDoList);
 
 
 function addToDoList(){
-    let div = document.getElementById("container");
+    let div = document.getElementById("container1");
     let span = document.createElement("div");
     span.setAttribute("class", "containers");
+    let textdiv = document.createElement("div");
+    // let dateAuthor = document.createElement("div");
+    // let date = new Date().toLocaleDateString();
+    // let dateText = document.createTextNode(date);
+    // dateAuthor.appendChild(dateText);
+    // dateAuthor.setAttribute("class", "dateauthor");
     let title = document.getElementById("titlex").value;
     let titleText = document.createTextNode(title);
+    let ul = document.createElement("ul");
+    ul.setAttribute("class", "uList");
+    textdiv.appendChild(titleText);
+    textdiv.setAttribute("class", "textDiv")
+    document.createElement("br");
     let todoItem = document.createElement("input");
+    todoItem.setAttribute("class","taskInput");
     todoItem.type = 'text';
-    let addBtn = document.createElement("button");
-    addBtn.innerHTML = 'Add';
-    let delBtn = document.createElement("button");
-    delBtn.innerHTML = 'Delete';
-    delBtn.addEventListener("click", deleteToDoList);
-    span.appendChild(titleText);
-    span.appendChild(delBtn);
+    let iconAdd = document.createElement("i");
+    iconAdd.setAttribute("class","fa fa-plus");
+    let iconDel = document.createElement("i");
+    iconDel.innerHTML = "delete";
+    iconDel.setAttribute("class","material-icons");
+    iconDel.addEventListener("click", deleteToDoList);
+    textdiv.appendChild(iconDel);
+    span.appendChild(textdiv);
     span.appendChild(todoItem);
-    span.appendChild(addBtn);
+    span.appendChild(iconAdd);
+   // span.appendChild(dateAuthor);
     div.appendChild(span);
-    addBtn.addEventListener("click", function(){
+    
+    iconAdd.addEventListener("click", function(){
         let todoItemValue = todoItem.value;
         let todoItemText = document.createTextNode(todoItemValue);
         let li = document.createElement("li");
-        let ul = document.createElement("ul");
-        let close = document.createElement("button");
-        close.innerHTML = 'Done';
+        li.setAttribute("class", "list");
+        // let ul = document.createElement("ul");
+        // ul.setAttribute("class", "uList");
+        let close = document.createElement("i");
+        close.setAttribute("class","material-icons")
+        close.innerHTML = 'delete';
+        
         if(todoItemValue === ''){
             alert("Please enter some value");
         }
@@ -58,7 +77,7 @@ function addToDoList(){
 }
 
 function deleteToDoList(evt){
-    evt.target.parentNode.style.display="none";
+    evt.target.parentNode.parentNode.style.display="none";
 }
 
 function strikeout(evt){
@@ -66,5 +85,5 @@ function strikeout(evt){
 }
 
 function deleteToDoItem(evt){
-    evt.target.parentNode.style.display="none";
+    evt.target.parentNode.parentNode.removeChild(evt.target.parentNode);
 }

@@ -2,14 +2,27 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <title>ToDoList Application</title>
 
 <body>
+
+        <ul class="navbar">
+                <li class="navbarli"><a class="active" href="#home">TO-DO LIST</a></li>
+                <li class="navbarli"><a href="#news">All Tasks</a></li>
+                <li class="navbarli"><a href="#contact">Search</a></li>
+                <li class="navbarli"><a href="#about">User</a></li>
+              </ul>
+<div class="container">
     <input type="text" id="titlex" placeholder="Title">
     <button id="btn">CREATE</button>
-    <hr>
-    <div id="container"></div>
+    
+    <div id="container1"></div>
+
+</div>
 </body>
 
 <script type="text/javascript" src="todo.js"></script>
