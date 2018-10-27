@@ -1,3 +1,16 @@
+.user
+{
+
+ float: right; 
+ display: block;
+        color: #666;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: Comic Sans MS;  
+        color: white;
+}
+
 body{
 
     background-color: #f3f3f3;

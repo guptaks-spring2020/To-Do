@@ -1,6 +1,6 @@
 window.onload = function(){
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.myjson.com/bins/1f617w');
+    xhr.open('GET', 'https://api.myjson.com/bins/13lpkc');
     xhr.responseType = 'text';
 
     xhr.onload = function () {
@@ -11,6 +11,7 @@ window.onload = function(){
     };
     xhr.send();
 };
+
 
 function loadData(data) {
     //alert(JSON.stringify(data));
@@ -134,7 +135,6 @@ function close()
 
 }
 
-
 let btn = document.getElementById("btn");
 btn.addEventListener("click", addToDoList);
 
@@ -142,41 +142,78 @@ btn.addEventListener("click", addToDoList);
 function addToDoList(){
     let div = document.getElementById("container1");
     let span = document.createElement("div");
+    let spanParent = document.createElement("div");
+        spanParent.setAttribute("class", "spanParent");
     span.setAttribute("class", "containers");
     let textdiv = document.createElement("div");
-    // let dateAuthor = document.createElement("div");
-    // let date = new Date().toLocaleDateString();
-    // let dateText = document.createTextNode(date);
-    // dateAuthor.appendChild(dateText);
-    // dateAuthor.setAttribute("class", "dateauthor");
+
+
+     let dateAuthor = document.createElement("div");
+     let date = new Date().toLocaleDateString();
+     let dateText = document.createTextNode(date);
+
+     let author = document.getElementById("authoruser").innerHTML;
+    let authortext = document.createTextNode(author);
+    
+     let authorDiv = document.createElement("div");
+     authorDiv.appendChild(authortext);
+     authorDiv.setAttribute("class","authorDiv");
+
+     
+
+     dateAuthor.appendChild(dateText);
+     dateAuthor.appendChild(authorDiv);
+     dateAuthor.setAttribute("class", "dateauthor");
+
+
+     
     let title = document.getElementById("titlex").value;
     let titleText = document.createTextNode(title);
     let ul = document.createElement("ul");
     ul.setAttribute("class", "uList");
-    textdiv.appendChild(titleText);
-    textdiv.setAttribute("class", "textDiv")
-    document.createElement("br");
+    let iconAdd = document.createElement("i");
+    iconAdd.setAttribute("class","fa fa-plus");
     let todoItem = document.createElement("input");
     todoItem.setAttribute("class","taskInput");
     todoItem.type = 'text';
-    let iconAdd = document.createElement("i");
-    iconAdd.setAttribute("class","fa fa-plus");
     let iconDel = document.createElement("i");
     iconDel.innerHTML = "delete";
     iconDel.setAttribute("class","material-icons");
     iconDel.addEventListener("click", deleteToDoList);
+    if(title==="")
+    {
+
+        alert("Please enter a title");
+    }
+
+    else{
+    textdiv.appendChild(titleText);
+    
+    textdiv.setAttribute("class", "textDiv")
+    document.createElement("br");
+    // let todoItem = document.createElement("input");
+    // todoItem.setAttribute("class","taskInput");
+    // todoItem.type = 'text';
+    // let iconAdd = document.createElement("i");
+    // iconAdd.setAttribute("class","fa fa-plus");
+    // let iconDel = document.createElement("i");
+    // iconDel.innerHTML = "delete";
+    // iconDel.setAttribute("class","material-icons");
+    // iconDel.addEventListener("click", deleteToDoList);
     textdiv.appendChild(iconDel);
     span.appendChild(textdiv);
     span.appendChild(todoItem);
     span.appendChild(iconAdd);
-   // span.appendChild(dateAuthor);
+    span.appendChild(dateAuthor);
     div.appendChild(span);
-    
+    document.getElementById("titlex").value="";
+    }
     iconAdd.addEventListener("click", function(){
         let todoItemValue = todoItem.value;
         let todoItemText = document.createTextNode(todoItemValue);
         let li = document.createElement("li");
         li.setAttribute("class", "list");
+        
         // let ul = document.createElement("ul");
         // ul.setAttribute("class", "uList");
         let close = document.createElement("i");
@@ -184,18 +221,21 @@ function addToDoList(){
         close.innerHTML = 'delete';
         
         if(todoItemValue === ''){
-            alert("Please enter some value");
+           // alert("Please enter some value");
         }
         else{
             li.appendChild(todoItemText);
             ul.appendChild(li);
-            span.appendChild(ul);
+            spanParent.appendChild(ul)
+            span.appendChild(spanParent);
         }
         todoItem.value= '';
         li.appendChild(close);
         close.addEventListener("click", deleteToDoItem);
         li.addEventListener("click", strikeout);
+        
     });
+
 }
 
 function deleteToDoList(evt){
