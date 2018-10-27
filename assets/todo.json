@@ -1,0 +1,12 @@
+[{
+  "Title": "Shopping",
+  "ToDoText": ["Jacket" , "Boots" , "Gloves"],
+  "Author": "Jay Chitalia",
+  "date": "10/21/2018"
+},
+{
+  "Title": "Grocery",
+  "ToDoText": ["Spices" , "Grains" , "Vegetables"],
+  "Author": "Kshitiz",
+  "date": "10/30/2018"
+}]
