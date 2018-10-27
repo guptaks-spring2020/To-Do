@@ -1,0 +1,27 @@
+{
+  "name": "assignment-5-javascript-2-not-really",
+  "version": "1.0.0",
+  "description": "",
+  "main": "todo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neu-mis-info6150-fall-2018/assignment-5-javascript-2-not-really.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neu-mis-info6150-fall-2018/assignment-5-javascript-2-not-really/issues"
+  },
+  "homepage": "https://github.com/neu-mis-info6150-fall-2018/assignment-5-javascript-2-not-really#readme",
+  "dependencies": {
+    "webpack": "^4.23.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.1.10"
+  }
+}
