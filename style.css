@@ -1,3 +1,8 @@
+.navbar
+{
+
+    background-color: black;
+}
 .user
 {
 
@@ -10,18 +15,34 @@
         font-family: Comic Sans MS;  
         color: white;
 }
+.authorDiv
+{
+    display: inline;
+    float: right;
+
+    /* margin-left: 23px; */
+
+}
+
+
+.dateauthor
+{
+    /* position: absolute; */
+    bottom: 0;
+    margin-top: 10px;
+}
 
 body{
 
     background-color: #f3f3f3;
     margin: 0px;
-    font-family: garamon
+    font-family: Comic Sans MS;
 }
 
 .containers{
     border: 1px solid black;
-    max-width: 500px;
-    min-height: 30px;
+   
+    min-height: 15%;
     float: left;
     margin-top: 40px;
     background-color: white;
@@ -29,6 +50,22 @@ body{
     font-family: Comic Sans MS;
     font-size: large;
     padding: 10px;
+    position: relative;
+    box-shadow: 10px 10px grey;
+    
+}
+
+.spanParent{
+    
+    
+   
+    
+    background-color: white;
+    
+    font-family: Comic Sans MS;
+    font-size: large;
+    margin-bottom: 20px;
+    
 }
 
 .strike{
@@ -64,7 +101,10 @@ body{
 
 .navbarli {
     float: left;
+    background-color: red;
 }
+
+
 
 li a {
     display: block;
@@ -81,7 +121,7 @@ li a:hover:not(.active) {
 
 li a.active {
     color: white;
-    background-color: #0080ff;
+    background-color: red;
 } 
 
 #titlex
