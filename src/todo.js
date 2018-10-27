@@ -1,3 +1,6 @@
+/**This anonymous function is executed on window load and makes an XMLHttpRequest to retrieve the data from json asynchronously. */
+
+
 window.onload = function () {
     let xhr = new XMLHttpRequest();
     jsondata = "./assets/todo.json"
@@ -13,31 +16,33 @@ window.onload = function () {
     xhr.send();
 };
 
-
+/**
+ *This function loads the JSON data into variables which will be used later to display them.
+ *
+ * @param {*} data
+ */
 function loadData(data) {
-    //alert(JSON.stringify(data));
-
-
     for (let i = 0; i < data.length; i++) {
 
 
         let TodoTitle = document.createTextNode(data[i].Title);
         let TodoAuthor = document.createTextNode(data[i].Author);
         let TodoDate = document.createTextNode(data[i].date);
-        // let todoTextItem = document.createTextNode(data[i].ToDoText);
         let todoTextItem = data[i].ToDoText;
-        // for(let j = 0; j< data[i].ToDoText.length; j++){
-        //     todoTextItem = document.createTextNode(data[i].ToDoText[j]);
-        //     console.log(todoTextItem);
-        // }
         addJson(TodoTitle, TodoAuthor, TodoDate, todoTextItem);
     }
 }
 
-
+/**
+ *This function will load the JSON objected into the todolist webapplication UI.
+ *
+ * @param {*} TodoTitle
+ * @param {*} TodoAuthor
+ * @param {*} TodoDate
+ * @param {*} todoTextItem
+ */
 function addJson(TodoTitle, TodoAuthor, TodoDate, todoTextItem) {
 
-    //alert(typeof todoTextItem);
     let div = document.getElementById("container1");
     let span = document.createElement("div");
     let spanParent = document.createElement("div");
@@ -45,7 +50,6 @@ function addJson(TodoTitle, TodoAuthor, TodoDate, todoTextItem) {
     span.setAttribute("class", "containers");
     let textdiv = document.createElement("div");
     let dateAuthor = document.createElement("div");
-    //let date = new Date().toLocaleDateString();
     let dateText = document.createTextNode(TodoDate.data);
     let authorText = document.createTextNode(TodoAuthor.data);
     dateAuthor.appendChild(dateText);
@@ -105,9 +109,6 @@ function addJson(TodoTitle, TodoAuthor, TodoDate, todoTextItem) {
         let todoItemText1 = document.createTextNode(todoItemValue);
         let li = document.createElement("li");
         li.setAttribute("class", "list");
-
-        // let ul = document.createElement("ul");
-        // ul.setAttribute("class", "uList");
         let cl = close();
 
         if (todoItemValue === '') {
@@ -126,7 +127,11 @@ function addJson(TodoTitle, TodoAuthor, TodoDate, todoTextItem) {
 }
 
 
-
+/**
+ *This function is for the close icon for the todo list item.
+ *
+ * @returns
+ */
 function close() {
     let close = document.createElement("i");
     close.setAttribute("class", "material-icons")
@@ -138,7 +143,10 @@ function close() {
 let btn = document.getElementById("btn");
 btn.addEventListener("click", addToDoList);
 
-
+/**
+ *This function adds Todolist.
+ *
+ */
 function addToDoList() {
     let div = document.getElementById("container1");
     let span = document.createElement("div");
@@ -188,15 +196,6 @@ function addToDoList() {
 
         textdiv.setAttribute("class", "textDiv")
         document.createElement("br");
-        // let todoItem = document.createElement("input");
-        // todoItem.setAttribute("class","taskInput");
-        // todoItem.type = 'text';
-        // let iconAdd = document.createElement("i");
-        // iconAdd.setAttribute("class","fa fa-plus");
-        // let iconDel = document.createElement("i");
-        // iconDel.innerHTML = "delete";
-        // iconDel.setAttribute("class","material-icons");
-        // iconDel.addEventListener("click", deleteToDoList);
         textdiv.appendChild(iconDel);
         span.appendChild(textdiv);
         span.appendChild(todoItem);
@@ -211,8 +210,6 @@ function addToDoList() {
         let li = document.createElement("li");
         li.setAttribute("class", "list");
 
-        // let ul = document.createElement("ul");
-        // ul.setAttribute("class", "uList");
         let close = document.createElement("i");
         close.setAttribute("class", "material-icons")
         close.innerHTML = 'delete';
@@ -233,15 +230,27 @@ function addToDoList() {
     });
 
 }
-
+/**
+ *This function is used to delete the todo list
+ *
+ * @param {*} evt
+ */
 function deleteToDoList(evt) {
     evt.target.parentNode.parentNode.style.display = "none";
 }
-
+/**
+ *This function is used to add line-through text decoration on todo tasks
+ *
+ * @param {*} evt
+ */
 function strikeout(evt) {
     evt.target.classList.toggle("strike");
 }
-
+/**
+ *This function is used to delete the Todo tasks inside the todo lists
+ *
+ * @param {*} evt
+ */
 function deleteToDoItem(evt) {
     evt.target.parentNode.parentNode.removeChild(evt.target.parentNode);
 }
